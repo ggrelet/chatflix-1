@@ -74,7 +74,11 @@ class Recommendation:
 
     # Pose une question à l'utilisateur
     def ask_question(self, user):
-        return "Je suppose que vous aimez les films, non ?"
+        test = np.random.uniform(0,1,1)[0]
+        if test > 0.5:
+            return "Avez-vous aimé Harry Potter ?"
+        elif test <= 0.5:
+            return "Avez-vous aimé le Seigneur des Anneaux ?"
 
     # Calcule la similarité entre 2 utilisateurs
     @staticmethod

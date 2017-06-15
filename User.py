@@ -49,9 +49,23 @@ class User:
 
         # On enlève les espaces en trop et on met tout le message en miniscule
         clean_message = message.lower().strip()
-        self.latest_movie_asked = None
 
         # Il faut traiter ici le message
+        if clean_message == "oui":
+            print(clean_message)
+            self.answer_yes()
+        elif clean_message == "non":
+            print(clean_message)
+            self.answer_no()
+        else:
+            print(clean_message)
+            self.answer_neutral()
+
+        print("Bad rating : " + str(self.bad_ratings))
+        print("Good rating : " + str(self.good_ratings))
+        print("Neutral rating : " + str(self.neutral_ratings))
+        self.latest_movie_asked = None
+
         return
 
     # Donne la norme de l'utilisateur

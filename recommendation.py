@@ -84,6 +84,7 @@ class Recommendation:
     # Pose une question à l'utilisateur
     def ask_question(self, user):
         var = self.get_movies_list_id(user)
+        user.set_question(var)
         return "Avez-vous aimé " + str(self.get_movie_from_id(user, var))
 
     # Calcule la similarité entre 2 utilisateurs

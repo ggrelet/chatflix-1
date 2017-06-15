@@ -72,13 +72,19 @@ class Recommendation:
     def make_recommendation(self, user):
         return "Vous n'avez pas de recommandation pour le moment."
 
+    def get_movies_list_id(self, user):
+        s = len(self.movies_list)
+        k = np.random.randint(0,s)
+        return self.movies_list[k]
+
+    def get_movie_from_id(self, user, var):
+        goodmovie = [movie.title for movie in self.movies if movie.id == var][0]
+        return goodmovie
+
     # Pose une question à l'utilisateur
     def ask_question(self, user):
-        test = np.random.uniform(0,1,1)[0]
-        if test > 0.5:
-            return "Avez-vous aimé Harry Potter ?"
-        elif test <= 0.5:
-            return "Avez-vous aimé le Seigneur des Anneaux ?"
+        var = self.get_movies_list_id(user)
+        return "Avez-vous aimé " + str(self.get_movie_from_id(user, var))
 
     # Calcule la similarité entre 2 utilisateurs
     @staticmethod
